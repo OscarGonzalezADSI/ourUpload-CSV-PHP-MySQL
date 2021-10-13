@@ -57,7 +57,7 @@ if ($zip->open('../filesZip/test.zip') === TRUE) {
     echo 'failed';
 }
 
-if (($handle = fopen("test.csv", "r")) !== FALSE) {
+if (($handle = fopen("../filesCsv/test.csv", "r")) !== FALSE) {
 	$myRow = 0;
     while (($data = fgetcsv($handle, 1000, ";")) !== FALSE) {
 		if ($myRow == 0){
