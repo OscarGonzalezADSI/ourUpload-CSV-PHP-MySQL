@@ -9,7 +9,7 @@
 include_once "../model/ModelUsers.php";
 
 
-$target_dir = "../filesZip/";
+$target_dir = "../files/filesZip/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -49,15 +49,15 @@ if ($uploadOk == 0) {
 }
 
 $zip = new ZipArchive;
-if ($zip->open('../filesZip/test.zip') === TRUE) {
-    $zip->extractTo('../filesCsv/');
+if ($zip->open('../files/filesZip/test.zip') === TRUE) {
+    $zip->extractTo('../files/filesCsv/');
     $zip->close();
     echo 'ok';
 } else {
     echo 'failed';
 }
 
-if (($handle = fopen("../filesCsv/test.csv", "r")) !== FALSE) {
+if (($handle = fopen("../files/filesCsv/test.csv", "r")) !== FALSE) {
 	$myRow = 0;
     while (($data = fgetcsv($handle, 1000, ";")) !== FALSE) {
 		if ($myRow == 0){
